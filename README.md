@@ -12,7 +12,7 @@ Project Re:YUA は、ユーザーとの会話を記憶し、次回起動時に�
 
 ## 📸 スクリーンショット
 
-[![Uploading project-re-yua_screen.png…]()](https://github.com/ntakazawa-dev/Repository-Name-project-re-yua/blob/main/project-re-yua_screen.png)
+![Project Re:YUA](project-re-yua_screen.png)
 
 ---
 
