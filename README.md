@@ -12,7 +12,7 @@ Project Re:YUA は、ユーザーとの会話を記憶し、次回起動時に�
 
 ## 📸 スクリーンショット
 
-![Project Re:YUA](project-re-yua_screen.png)
+![Project Re:YUA](project-re-yua_gui.png)
 
 ---
 
