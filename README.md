@@ -19,6 +19,10 @@ Flaskで制作したAIチャットアプリです。
 - 履歴削除
 - Webブラウザ上での操作
 
+## スクリーンショット
+
+![Re:YUA Web版](images/screenshot.png)
+
 ## 使用技術
 
 - Python
