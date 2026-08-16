@@ -21,7 +21,7 @@ Flaskで制作したAIチャットアプリです。
 
 ## スクリーンショット
 
-![Re:YUA Web版](images/screenshot.png)
+![Re:YUA Web版](screenshot.png)
 
 ## 使用技術
 
