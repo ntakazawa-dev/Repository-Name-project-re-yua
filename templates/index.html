@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Re:YUA Web</title>
+
+<style>
+body {
+    
+    background-color: #f7fbff;
+    
+    font-family: sans-serif;
+}
+
+.container{
+
+    max-width:1100px;
+
+    width:95%;
+
+    margin:40px auto;
+
+    background:white;
+
+    padding:24px;
+
+    border-radius:20px;
+
+    box-shadow:0 4px 16px rgba(0,0,0,0.08);
+}
+
+.main{
+    
+    display: flex;
+    
+    gap: 24px;
+
+    align-items: flex-start;
+}
+
+.chat-area{
+    
+    flex: 3;
+}
+
+h1 {
+    
+    text-align: center;
+}
+
+input {
+    
+    width: 80%;
+    
+    padding: 10px;
+
+    border-radius: 10px;
+
+    border: 1px solid #ccc;
+}
+
+button {
+    
+    padding: 10px 16px;
+
+    border-radius: 10px;
+
+    border: none;
+
+    background-color: #7fc9ff;
+
+    cursor: pointer;
+}
+
+.chat-box {
+    
+    height: 550px;
+
+    overflow-y: auto;
+
+}
+
+.message {
+    
+    margin-top: 16px;
+
+    line-height: 1.8;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+}
+
+.user-message{
+
+    display:inline-block;
+
+    max-width:70%;
+
+    padding:10px 14px;
+
+    background:#9ed8ff;
+
+    border-radius:18px;
+
+    margin-right:4px;
+
+    box-shadow:0 2px 4px rgba(0,0,0,0.08);
+}
+
+.user-message p,
+.yua-message p{
+
+    margin:0;
+}
+
+
+.yua-message{
+
+    display:inline-block;
+
+    max-width:70%;
+
+    padding:10px 14px;
+
+    background:#f5f5f5;
+
+    border-radius:18px;
+
+    border:1px solid #ddd;
+
+    margin-leftt:4px;
+
+    box-shadow:0 2px 4px rgba(0,0,0,0.08);
+}
+
+.icon{
+
+    font-size:26px;
+}
+
+.user-row{
+
+    display: flex;
+
+    width: 100%;
+
+    justify-content: flex-end;
+
+    align-items:flex-end;
+
+    gap: 8px;
+}
+
+.yua-row{
+
+    display: flex;
+
+    width: 100%;
+
+    justify-content: flex-start;
+
+    align-items:flex-end;
+
+    gap: 8px;
+}
+
+.profile-card{
+
+    flex:1;
+
+    background:#f8f9ff;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    padding:15px;
+
+    margin-bottom:20px;
+}
+
+.profile-item{
+
+    margin-bottom:20px;
+}
+
+.title{
+
+    font-weight:bold;
+
+    margin-bottom:5px;
+}
+
+.value{
+
+    background:white;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+    padding:8px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="main">
+
+        <!-- チャットエリア -->
+        <div class="chat-area">
+
+            <h1>🌸 Re:YUA Web版</h1>
+            <p>おかえり😊</p>
+
+            <form method="POST">
+                <input type="text" name="message" placeholder="メッセージを入力">
+                <button type="submit">送信</button>
+            </form>
+
+            <form method="POST">
+                <button type="submit" name="clear">🗑 履歴を消す</button>
+            </form>
+
+            <div class="chat-box">
+
+                {% for item in chat %}
+
+                <div class="message">
+
+
+                   <!-- ユーザー（右） -->
+                   <div class="user-row">
+
+                     <div class="user-message">
+                        <p>{{ item.user }}</p>
+                     </div>
+
+                       <span class="icon">😊</span>
+
+                    </div>
+
+                    <!-- YUA（左） -->
+                    <div class="yua-row">
+
+                        <span class="icon">🤖</span>
+
+                        <div class="yua-message">
+                            <p>{{ item.reply }}</p>
+                        </div>
+
+                    </div>                
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    <!-- プロフィール -->
+    <div class="profile-card">
+
+        <h3>🌸 プロフィール</h3>
+        <div class="profile-item">
+            <div class="title">😊 名前</div>
+            <div class="value">{{ profile.nickname }}</div>
+        </div>
+
+        <div class="profile-item">
+            <div class="title">🍜 好きな食べ物</div>
+            <div class="value">{{ profile.favorite_food }}</div>
+        </div>
+
+        <div class="profile-item">
+            <div class="title">🎯 目標</div>
+            <div class="value">{{ profile.goal }}</div>
+        </div>
+
+        <div class="profile-item">
+            <div class="title">💖 好感度</div>
+            <div class="value">{{ profile.affection }}</div>
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const chatBox = document.querySelector(".chat-box");
+
+if(chatBox){
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+</script>
+
+</body>
+</html>
